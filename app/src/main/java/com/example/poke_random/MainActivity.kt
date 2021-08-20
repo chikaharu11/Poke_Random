@@ -6,8 +6,14 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import org.json.JSONObject
+import java.net.URL
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+
+    private var largeImage = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,8 +38,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         button.setOnClickListener{
-            val random = (1..893).random()
-            webView.loadUrl("https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:$random")
+            thread {
+                val random = (1..893).random()
+                val api = URL("https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:$random").readText()
+                println(random)
+                val json = JSONObject(api)
+                val index = json.getJSONArray("data").length()
+                val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                largeImage = data.getJSONObject("images").getString("large")
+            }.join()
+            webView.loadUrl(largeImage)
         }
     }
 }
