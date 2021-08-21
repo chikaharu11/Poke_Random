@@ -49,5 +49,16 @@ class MainActivity : AppCompatActivity() {
             }.join()
             webView.loadUrl(largeImage)
         }
+        button2.setOnClickListener{
+            thread {
+                val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax").readText()
+                val json = JSONObject(api)
+                val index = json.getJSONArray("data").length()
+                println(index)
+                val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                largeImage = data.getJSONObject("images").getString("large")
+            }.join()
+            webView.loadUrl(largeImage)
+        }
     }
 }
