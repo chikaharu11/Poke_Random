@@ -180,6 +180,56 @@ class MainActivity : AppCompatActivity() {
             "swsh6"
         )
 
+        val setsEX = arrayOf(
+            "bwp",
+            "bw1",
+            "bw2",
+            "bw3",
+            "bw4",
+            "bw5",
+            "bw6",
+            "bw7",
+            "bw8",
+            "bw9",
+            "bw10",
+            "xyp",
+            "bw11",
+            "xy1",
+            "xy2",
+            "xy3",
+            "xy4",
+            "xy5",
+            "dc1",
+            "xy6",
+            "xy7",
+            "xy8",
+            "xy9",
+            "g1",
+            "xy10",
+            "xy11",
+            "xy12"
+        )
+
+        val setsGX = arrayOf(
+            "sm1",
+            "smp",
+            "sm2",
+            "sm3",
+            "sm35",
+            "sm4",
+            "sm5",
+            "sm6",
+            "sm7",
+            "sm75",
+            "sm8",
+            "sm9",
+            "sm10",
+            "sm11",
+            "sm115",
+            "sma",
+            "sm12"
+        )
+
         button.setOnClickListener{
             thread {
                 val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon").readText()
@@ -195,7 +245,6 @@ class MainActivity : AppCompatActivity() {
                 val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsV.random()} subtypes:v").readText()
                 val json = JSONObject(api)
                 val index = json.getJSONArray("data").length()
-                println(index)
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
@@ -206,7 +255,26 @@ class MainActivity : AppCompatActivity() {
                 val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax").readText()
                 val json = JSONObject(api)
                 val index = json.getJSONArray("data").length()
-                println(index)
+                val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                largeImage = data.getJSONObject("images").getString("large")
+            }.join()
+            webView.loadUrl(largeImage)
+        }
+        button4.setOnClickListener{
+            thread {
+                val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsEX.random()} subtypes:EX").readText()
+                val json = JSONObject(api)
+                val index = json.getJSONArray("data").length()
+                val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                largeImage = data.getJSONObject("images").getString("large")
+            }.join()
+            webView.loadUrl(largeImage)
+        }
+        button5.setOnClickListener{
+            thread {
+                val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsGX.random()} subtypes:GX -subtypes:TAG").readText()
+                val json = JSONObject(api)
+                val index = json.getJSONArray("data").length()
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
@@ -217,7 +285,6 @@ class MainActivity : AppCompatActivity() {
                 val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:TAG").readText()
                 val json = JSONObject(api)
                 val index = json.getJSONArray("data").length()
-                println(index)
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
