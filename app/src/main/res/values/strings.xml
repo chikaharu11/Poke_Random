@@ -2,9 +2,9 @@
     <string name="app_name">Poke_Random</string>
     <string name="button">ALL</string>
     <string name="button2">V</string>
-    <string name="button3">V MAX</string>
+    <string name="button3">MAX</string>
     <string name="button4">EX</string>
     <string name="button5">GX</string>
-    <string name="button6">TAG TEAM</string>
+    <string name="button6">TAG</string>
 
 </resources>
