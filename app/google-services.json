@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "151770784729",
+    "project_id": "chikaharu11-admob6",
+    "storage_bucket": "chikaharu11-admob6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151770784729:android:3fde0a74a2601bef566fc8",
+        "android_client_info": {
+          "package_name": "jp.chikaharu11.poke_random"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151770784729-30e7g1p5jub25kr2dn67mmml378fcvu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZU138XYgi2hzP4ZuCO1k-aR0uh4lKiDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151770784729-30e7g1p5jub25kr2dn67mmml378fcvu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
