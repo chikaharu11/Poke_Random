@@ -1,12 +1,15 @@
 package com.example.poke_random
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import androidx.constraintlayout.widget.ConstraintLayout
 import org.json.JSONObject
 import java.net.URL
 import kotlin.concurrent.thread
@@ -15,10 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     private var largeImage = ""
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val layoutView =findViewById<ConstraintLayout>(R.id.layoutView)
         val webView = findViewById<WebView>(R.id.webView)
         val button = findViewById<Button>(R.id.button)
         val button2 = findViewById<Button>(R.id.button2)
@@ -231,6 +236,16 @@ class MainActivity : AppCompatActivity() {
             "sm12"
         )
 
+        webView.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                layoutView.visibility = View.VISIBLE
+                webView.visibility = View.INVISIBLE
+            }
+            false
+        }
+
+
+
         button.setOnClickListener{
             thread {
                 val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon").readText()
@@ -239,6 +254,8 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
@@ -250,6 +267,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
@@ -261,6 +279,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
@@ -272,6 +291,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
@@ -283,6 +303,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
@@ -294,6 +315,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
