@@ -2,6 +2,7 @@ package com.example.poke_random
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -238,6 +239,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
         button2.setOnClickListener{
@@ -248,6 +250,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
         button3.setOnClickListener{
@@ -258,6 +261,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
         button4.setOnClickListener{
@@ -268,6 +272,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
         button5.setOnClickListener{
@@ -278,6 +283,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
         button6.setOnClickListener{
@@ -288,6 +294,7 @@ class MainActivity : AppCompatActivity() {
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                 largeImage = data.getJSONObject("images").getString("large")
             }.join()
+            webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
         }
     }

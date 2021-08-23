@@ -6,5 +6,16 @@
     <string name="button4">EX</string>
     <string name="button5">GX</string>
     <string name="button6">TAG</string>
-
+    <string name="button7">EXIT</string>
+    <string name="checkbox">Grass</string>
+    <string name="checkbox2">Fire</string>
+    <string name="checkbox3">Water</string>
+    <string name="checkbox4">Lightning</string>
+    <string name="checkbox5">Fighting</string>
+    <string name="checkbox6">Psychic</string>
+    <string name="checkbox7">Colorless</string>
+    <string name="checkbox8">Darkness</string>
+    <string name="checkbox9">Metal</string>
+    <string name="checkbox10">Dragon</string>
+    <string name="checkbox11">Fairy</string>
 </resources>
