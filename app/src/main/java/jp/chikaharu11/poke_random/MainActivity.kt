@@ -1,4 +1,4 @@
-package com.example.poke_random
+package jp.chikaharu11.poke_random
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

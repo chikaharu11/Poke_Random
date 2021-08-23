@@ -7,7 +7,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.example.poke_random"
+        applicationId "jp.chikaharu11.poke_random"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.poke_random
+package jp.chikaharu11.poke_random
 
 import org.junit.Test
 
@@ -12,6 +12,6 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        assertEquals(4, 4L)
     }
 }

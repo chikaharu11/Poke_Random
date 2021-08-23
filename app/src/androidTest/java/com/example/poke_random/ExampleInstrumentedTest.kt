@@ -1,4 +1,4 @@
-package com.example.poke_random
+package jp.chikaharu11.poke_random
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.poke_random", appContext.packageName)
+        assertEquals("jp.chikaharu11.poke_random", appContext.packageName)
     }
 }
