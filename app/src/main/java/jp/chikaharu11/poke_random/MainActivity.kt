@@ -9,6 +9,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.json.JSONObject
 import java.net.URL
@@ -31,6 +32,18 @@ class MainActivity : AppCompatActivity() {
         val button4 = findViewById<Button>(R.id.button4)
         val button5 = findViewById<Button>(R.id.button5)
         val button6 = findViewById<Button>(R.id.button6)
+        val imageview = findViewById<ImageView>(R.id.imageView)
+        val imageview2 = findViewById<ImageView>(R.id.imageView2)
+        val imageview3 = findViewById<ImageView>(R.id.imageView3)
+        val imageview4 = findViewById<ImageView>(R.id.imageView4)
+        val imageview5 = findViewById<ImageView>(R.id.imageView5)
+        val imageview6 = findViewById<ImageView>(R.id.imageView6)
+        val imageview7 = findViewById<ImageView>(R.id.imageView7)
+        val imageview8 = findViewById<ImageView>(R.id.imageView8)
+        val imageview9 = findViewById<ImageView>(R.id.imageView9)
+        val imageview10 = findViewById<ImageView>(R.id.imageView10)
+        val imageview11 = findViewById<ImageView>(R.id.imageView11)
+        val imageview12 = findViewById<ImageView>(R.id.imageView12)
 
 
         webView.settings.loadWithOverviewMode = true
@@ -242,6 +255,11 @@ class MainActivity : AppCompatActivity() {
                 webView.visibility = View.INVISIBLE
             }
             false
+        }
+
+        imageview.setOnClickListener {
+                webView.visibility = View.VISIBLE
+                layoutView.visibility = View.INVISIBLE
         }
 
 
