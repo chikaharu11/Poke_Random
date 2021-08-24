@@ -9,8 +9,12 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import org.json.JSONObject
 import java.net.URL
 import kotlin.concurrent.thread
@@ -32,18 +36,29 @@ class MainActivity : AppCompatActivity() {
         val button4 = findViewById<Button>(R.id.button4)
         val button5 = findViewById<Button>(R.id.button5)
         val button6 = findViewById<Button>(R.id.button6)
-        val imageview = findViewById<ImageView>(R.id.imageView)
-        val imageview2 = findViewById<ImageView>(R.id.imageView2)
-        val imageview3 = findViewById<ImageView>(R.id.imageView3)
-        val imageview4 = findViewById<ImageView>(R.id.imageView4)
-        val imageview5 = findViewById<ImageView>(R.id.imageView5)
-        val imageview6 = findViewById<ImageView>(R.id.imageView6)
-        val imageview7 = findViewById<ImageView>(R.id.imageView7)
-        val imageview8 = findViewById<ImageView>(R.id.imageView8)
-        val imageview9 = findViewById<ImageView>(R.id.imageView9)
-        val imageview10 = findViewById<ImageView>(R.id.imageView10)
-        val imageview11 = findViewById<ImageView>(R.id.imageView11)
-        val imageview12 = findViewById<ImageView>(R.id.imageView12)
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
+        val imageView3 = findViewById<ImageView>(R.id.imageView3)
+        val imageView4 = findViewById<ImageView>(R.id.imageView4)
+        val imageView5 = findViewById<ImageView>(R.id.imageView5)
+        val imageView6 = findViewById<ImageView>(R.id.imageView6)
+        val imageView7 = findViewById<ImageView>(R.id.imageView7)
+        val imageView8 = findViewById<ImageView>(R.id.imageView8)
+        val imageView9 = findViewById<ImageView>(R.id.imageView9)
+        val imageView10 = findViewById<ImageView>(R.id.imageView10)
+        val imageView11 = findViewById<ImageView>(R.id.imageView11)
+        val imageView12 = findViewById<ImageView>(R.id.imageView12)
+        val checkBox = findViewById<CheckBox>(R.id.checkBox)
+        val checkBox2 = findViewById<CheckBox>(R.id.checkBox2)
+        val checkBox3 = findViewById<CheckBox>(R.id.checkBox3)
+        val checkBox4 = findViewById<CheckBox>(R.id.checkBox4)
+        val checkBox5 = findViewById<CheckBox>(R.id.checkBox5)
+        val checkBox6 = findViewById<CheckBox>(R.id.checkBox6)
+        val checkBox7 = findViewById<CheckBox>(R.id.checkBox7)
+        val checkBox8 = findViewById<CheckBox>(R.id.checkBox8)
+        val checkBox9 = findViewById<CheckBox>(R.id.checkBox9)
+        val checkBox10 = findViewById<CheckBox>(R.id.checkBox10)
+        val checkBox11 = findViewById<CheckBox>(R.id.checkBox11)
 
 
         webView.settings.loadWithOverviewMode = true
@@ -59,6 +74,12 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         }
+
+        MobileAds.initialize(this) {}
+
+        val adView = findViewById<AdView>(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         val sets = arrayOf(
             "base1",
@@ -257,9 +278,14 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-        imageview.setOnClickListener {
-                webView.visibility = View.VISIBLE
-                layoutView.visibility = View.INVISIBLE
+        imageView.setOnClickListener {
+            if (!checkBox.isChecked) {
+                imageView.setImageResource(R.drawable.grass2)
+                checkBox.performClick()
+            } else if (checkBox.isChecked) {
+                imageView.setImageResource(R.drawable.grass)
+                checkBox.performClick()
+            }
         }
 
 
@@ -291,7 +317,7 @@ class MainActivity : AppCompatActivity() {
         }
         button3.setOnClickListener{
             thread {
-                val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax").readText()
+                val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax (types:water or types:fairy)").readText()
                 val json = JSONObject(api)
                 val index = json.getJSONArray("data").length()
                 val data = json.getJSONArray("data").getJSONObject((0 until index).random())
