@@ -22,6 +22,19 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     private var largeImage = ""
+    private var grass = ""
+    private var fire = ""
+    private var water = ""
+    private var lightning = ""
+    private var fighting = ""
+    private var psychic = ""
+    private var colorless = ""
+    private var darkness = ""
+    private var metal = ""
+    private var dragon = ""
+    private var fairy = ""
+
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -282,9 +295,20 @@ class MainActivity : AppCompatActivity() {
             if (!checkBox.isChecked) {
                 imageView.setImageResource(R.drawable.grass2)
                 checkBox.performClick()
+                grass = "types:grass or "
             } else if (checkBox.isChecked) {
                 imageView.setImageResource(R.drawable.grass)
                 checkBox.performClick()
+            }
+        }
+        imageView2.setOnClickListener {
+            if (!checkBox2.isChecked) {
+                imageView2.setImageResource(R.drawable.fire2)
+                checkBox2.performClick()
+                fire = "types:fire or "
+            } else if (checkBox2.isChecked) {
+                imageView2.setImageResource(R.drawable.fire)
+                checkBox2.performClick()
             }
         }
 
@@ -317,11 +341,31 @@ class MainActivity : AppCompatActivity() {
         }
         button3.setOnClickListener{
             thread {
-                val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax (types:water or types:fairy)").readText()
-                val json = JSONObject(api)
-                val index = json.getJSONArray("data").length()
-                val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                largeImage = data.getJSONObject("images").getString("large")
+                if (
+                    !checkBox.isChecked &&
+                    !checkBox2.isChecked &&
+                    !checkBox3.isChecked &&
+                    !checkBox4.isChecked &&
+                    !checkBox5.isChecked &&
+                    !checkBox6.isChecked &&
+                    !checkBox7.isChecked &&
+                    !checkBox8.isChecked &&
+                    !checkBox9.isChecked &&
+                    !checkBox10.isChecked &&
+                    !checkBox11.isChecked
+                ) {
+                    val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax").readText()
+                    val json = JSONObject(api)
+                    val index = json.getJSONArray("data").length()
+                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                    largeImage = data.getJSONObject("images").getString("large")
+                } else {
+                    val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                    val json = JSONObject(api)
+                    val index = json.getJSONArray("data").length()
+                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                    largeImage = data.getJSONObject("images").getString("large")
+                }
             }.join()
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
