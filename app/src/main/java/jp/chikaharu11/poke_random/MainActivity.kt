@@ -299,6 +299,7 @@ class MainActivity : AppCompatActivity() {
             } else if (checkBox.isChecked) {
                 imageView.setImageResource(R.drawable.grass)
                 checkBox.performClick()
+                grass = ""
             }
         }
         imageView2.setOnClickListener {
@@ -309,7 +310,110 @@ class MainActivity : AppCompatActivity() {
             } else if (checkBox2.isChecked) {
                 imageView2.setImageResource(R.drawable.fire)
                 checkBox2.performClick()
+                fire = ""
             }
+        }
+        imageView3.setOnClickListener {
+            if (!checkBox3.isChecked) {
+                imageView3.setImageResource(R.drawable.water2)
+                checkBox3.performClick()
+                water = "types:water or "
+            } else if (checkBox3.isChecked) {
+                imageView3.setImageResource(R.drawable.water)
+                checkBox3.performClick()
+                water = ""
+            }
+        }
+        imageView4.setOnClickListener {
+            if (!checkBox4.isChecked) {
+                imageView4.setImageResource(R.drawable.lightning2)
+                checkBox4.performClick()
+                lightning = "types:lightning or "
+            } else if (checkBox4.isChecked) {
+                imageView4.setImageResource(R.drawable.lightning)
+                checkBox4.performClick()
+                lightning = ""
+            }
+        }
+        imageView5.setOnClickListener {
+            if (!checkBox5.isChecked) {
+                imageView5.setImageResource(R.drawable.fighting2)
+                checkBox5.performClick()
+                fighting = "types:fighting or "
+            } else if (checkBox5.isChecked) {
+                imageView5.setImageResource(R.drawable.fighting)
+                checkBox5.performClick()
+                fighting = ""
+            }
+        }
+        imageView6.setOnClickListener {
+            if (!checkBox6.isChecked) {
+                imageView6.setImageResource(R.drawable.psychic2)
+                checkBox6.performClick()
+                psychic = "types:psychic or "
+            } else if (checkBox6.isChecked) {
+                imageView6.setImageResource(R.drawable.psychic)
+                checkBox6.performClick()
+                psychic = ""
+            }
+        }
+        imageView7.setOnClickListener {
+            if (!checkBox7.isChecked) {
+                imageView7.setImageResource(R.drawable.colorless2)
+                checkBox7.performClick()
+                colorless = "types:colorless or "
+            } else if (checkBox7.isChecked) {
+                imageView7.setImageResource(R.drawable.colorless)
+                checkBox7.performClick()
+                colorless = ""
+            }
+        }
+        imageView8.setOnClickListener {
+            if (!checkBox8.isChecked) {
+                imageView8.setImageResource(R.drawable.darkness2)
+                checkBox8.performClick()
+                darkness = "types:darkness or "
+            } else if (checkBox8.isChecked) {
+                imageView8.setImageResource(R.drawable.darkness)
+                checkBox8.performClick()
+                darkness = ""
+            }
+        }
+        imageView9.setOnClickListener {
+            if (!checkBox9.isChecked) {
+                imageView9.setImageResource(R.drawable.metal2)
+                checkBox9.performClick()
+                metal = "types:metal or "
+            } else if (checkBox9.isChecked) {
+                imageView9.setImageResource(R.drawable.metal)
+                checkBox9.performClick()
+                metal = ""
+            }
+        }
+        imageView10.setOnClickListener {
+            if (!checkBox10.isChecked) {
+                imageView10.setImageResource(R.drawable.dragon2)
+                checkBox10.performClick()
+                dragon = "types:dragon or "
+            } else if (checkBox10.isChecked) {
+                imageView10.setImageResource(R.drawable.dragon)
+                checkBox10.performClick()
+                dragon = ""
+            }
+        }
+        imageView11.setOnClickListener {
+            if (!checkBox11.isChecked) {
+                imageView11.setImageResource(R.drawable.fairy2)
+                checkBox11.performClick()
+                fairy = "types:fairy or "
+            } else if (checkBox11.isChecked) {
+                imageView11.setImageResource(R.drawable.fairy)
+                checkBox11.performClick()
+                fairy = ""
+            }
+        }
+        imageView12.setOnClickListener {
+            finish()
         }
 
 
