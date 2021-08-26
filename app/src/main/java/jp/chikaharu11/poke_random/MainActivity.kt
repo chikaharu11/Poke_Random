@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private var fairy = ""
 
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint("ClickableViewAccessibility", "ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -415,30 +416,51 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener{
             thread {
-                if (
-                    !checkBox.isChecked &&
-                    !checkBox2.isChecked &&
-                    !checkBox3.isChecked &&
-                    !checkBox4.isChecked &&
-                    !checkBox5.isChecked &&
-                    !checkBox6.isChecked &&
-                    !checkBox7.isChecked &&
-                    !checkBox8.isChecked &&
-                    !checkBox9.isChecked &&
-                    !checkBox10.isChecked &&
-                    !checkBox11.isChecked
-                ) {
-                    val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon").readText()
-                    val json = JSONObject(api)
-                    val index = json.getJSONArray("data").length()
-                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                    largeImage = data.getJSONObject("images").getString("large")
-                } else {
-                    val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
-                    val json = JSONObject(api)
-                    val index = json.getJSONArray("data").length()
-                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                    largeImage = data.getJSONObject("images").getString("large")
+                try {
+                    if (
+                        !checkBox.isChecked &&
+                        !checkBox2.isChecked &&
+                        !checkBox3.isChecked &&
+                        !checkBox4.isChecked &&
+                        !checkBox5.isChecked &&
+                        !checkBox6.isChecked &&
+                        !checkBox7.isChecked &&
+                        !checkBox8.isChecked &&
+                        !checkBox9.isChecked &&
+                        !checkBox10.isChecked &&
+                        !checkBox11.isChecked
+                    ) {
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } else {
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=set.id:${sets.random()} supertype:Pokémon ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    }
+                } catch (e: Exception) {
+                    try {
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=supertype:Pokémon ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }.join()
 
@@ -448,30 +470,52 @@ class MainActivity : AppCompatActivity() {
         }
         button2.setOnClickListener{
             thread {
-                if (
-                    !checkBox.isChecked &&
-                    !checkBox2.isChecked &&
-                    !checkBox3.isChecked &&
-                    !checkBox4.isChecked &&
-                    !checkBox5.isChecked &&
-                    !checkBox6.isChecked &&
-                    !checkBox7.isChecked &&
-                    !checkBox8.isChecked &&
-                    !checkBox9.isChecked &&
-                    !checkBox10.isChecked &&
-                    !checkBox11.isChecked
-                ) {
-                    val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsV.random()} subtypes:v").readText()
-                    val json = JSONObject(api)
-                    val index = json.getJSONArray("data").length()
-                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                    largeImage = data.getJSONObject("images").getString("large")
-                } else {
-                    val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsV.random()} subtypes:v ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
-                    val json = JSONObject(api)
-                    val index = json.getJSONArray("data").length()
-                    val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                    largeImage = data.getJSONObject("images").getString("large")
+                try {
+                    if (
+                        !checkBox.isChecked &&
+                        !checkBox2.isChecked &&
+                        !checkBox3.isChecked &&
+                        !checkBox4.isChecked &&
+                        !checkBox5.isChecked &&
+                        !checkBox6.isChecked &&
+                        !checkBox7.isChecked &&
+                        !checkBox8.isChecked &&
+                        !checkBox9.isChecked &&
+                        !checkBox10.isChecked &&
+                        !checkBox11.isChecked
+                    ) {
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsV.random()} subtypes:v").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } else {
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsV.random()} subtypes:v ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    }
+                } catch (e: Exception) {
+                    try {
+                            val api =
+                                URL("https://api.pokemontcg.io/v2/cards?q=subtypes:v ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                    " or )") + ")").readText()
+                            val json = JSONObject(api)
+                            val index = json.getJSONArray("data").length()
+                            val data =
+                                json.getJSONArray("data").getJSONObject((0 until index).random())
+                            largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }.join()
             layoutView.visibility = View.INVISIBLE
@@ -480,6 +524,7 @@ class MainActivity : AppCompatActivity() {
         }
         button3.setOnClickListener{
             thread {
+                try {
                 if (
                     !checkBox.isChecked &&
                     !checkBox2.isChecked &&
@@ -505,6 +550,21 @@ class MainActivity : AppCompatActivity() {
                     val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                     largeImage = data.getJSONObject("images").getString("large")
                 }
+                } catch (e: Exception) {
+                    try {
+                            val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                            val json = JSONObject(api)
+                            val index = json.getJSONArray("data").length()
+                            val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                            largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }.join()
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
@@ -512,6 +572,7 @@ class MainActivity : AppCompatActivity() {
         }
         button4.setOnClickListener{
             thread {
+                try {
                 if (
                     !checkBox.isChecked &&
                     !checkBox2.isChecked &&
@@ -537,6 +598,21 @@ class MainActivity : AppCompatActivity() {
                     val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                     largeImage = data.getJSONObject("images").getString("large")
                 }
+                } catch (e: Exception) {
+                    try {
+                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:EX ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }.join()
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
@@ -544,6 +620,7 @@ class MainActivity : AppCompatActivity() {
         }
         button5.setOnClickListener{
             thread {
+                try {
                 if (
                     !checkBox.isChecked &&
                     !checkBox2.isChecked &&
@@ -565,11 +642,24 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     val api = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsGX.random()} subtypes:GX -subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
                     val json = JSONObject(api)
-                    val api2 = URL("https://api.pokemontcg.io/v2/cards?q=set.id:${setsGX.random()} subtypes:GX -subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")")
-                    println(api2)
                     val index = json.getJSONArray("data").length()
                     val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                     largeImage = data.getJSONObject("images").getString("large")
+                }
+                } catch (e: Exception) {
+                    try {
+                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:GX -subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }.join()
             layoutView.visibility = View.INVISIBLE
@@ -578,6 +668,7 @@ class MainActivity : AppCompatActivity() {
         }
         button6.setOnClickListener{
             thread {
+                try {
                 if (
                     !checkBox.isChecked &&
                     !checkBox2.isChecked &&
@@ -602,6 +693,21 @@ class MainActivity : AppCompatActivity() {
                     val index = json.getJSONArray("data").length()
                     val data = json.getJSONArray("data").getJSONObject((0 until index).random())
                     largeImage = data.getJSONObject("images").getString("large")
+                }
+                } catch (e: Exception) {
+                    try {
+                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
+                    } catch (e: Exception) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,
+                                "Please re-specify the type.",
+                                Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }.join()
             layoutView.visibility = View.INVISIBLE
