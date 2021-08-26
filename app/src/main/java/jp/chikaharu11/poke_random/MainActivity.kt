@@ -457,9 +457,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
@@ -512,9 +513,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
@@ -560,9 +562,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
@@ -608,9 +611,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
@@ -656,9 +660,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
@@ -704,9 +709,10 @@ class MainActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
-                                "Please re-specify the type.",
+                                "Please re-specify the Type.",
                                 Toast.LENGTH_LONG).show()
                         }
+                        largeImage = "file:///android_asset/card_back.html"
                     }
                 }
             }.join()
