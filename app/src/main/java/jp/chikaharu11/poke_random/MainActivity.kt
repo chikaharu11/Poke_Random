@@ -464,7 +464,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
-
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
@@ -520,6 +520,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
@@ -554,11 +555,14 @@ class MainActivity : AppCompatActivity() {
                 }
                 } catch (e: Exception) {
                     try {
-                            val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
-                            val json = JSONObject(api)
-                            val index = json.getJSONArray("data").length()
-                            val data = json.getJSONArray("data").getJSONObject((0 until index).random())
-                            largeImage = data.getJSONObject("images").getString("large")
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=subtypes:vmax ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
+                        val json = JSONObject(api)
+                        val index = json.getJSONArray("data").length()
+                        val data =
+                            json.getJSONArray("data").getJSONObject((0 until index).random())
+                        largeImage = data.getJSONObject("images").getString("large")
                     } catch (e: Exception) {
                         runOnUiThread {
                             Toast.makeText(applicationContext,
@@ -569,6 +573,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
@@ -603,10 +608,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 } catch (e: Exception) {
                     try {
-                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:EX ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=subtypes:EX ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
                         val json = JSONObject(api)
                         val index = json.getJSONArray("data").length()
-                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        val data =
+                            json.getJSONArray("data").getJSONObject((0 until index).random())
                         largeImage = data.getJSONObject("images").getString("large")
                     } catch (e: Exception) {
                         runOnUiThread {
@@ -618,6 +626,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
@@ -652,10 +661,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 } catch (e: Exception) {
                     try {
-                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:GX -subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=subtypes:GX -subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
                         val json = JSONObject(api)
                         val index = json.getJSONArray("data").length()
-                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        val data =
+                            json.getJSONArray("data").getJSONObject((0 until index).random())
                         largeImage = data.getJSONObject("images").getString("large")
                     } catch (e: Exception) {
                         runOnUiThread {
@@ -667,6 +679,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
@@ -701,10 +714,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 } catch (e: Exception) {
                     try {
-                        val api = URL("https://api.pokemontcg.io/v2/cards?q=subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(" or )") + ")").readText()
+                        val api =
+                            URL("https://api.pokemontcg.io/v2/cards?q=subtypes:TAG ($grass$fire$water$lightning$fighting$psychic$colorless$darkness$metal$dragon$fairy)".removeSuffix(
+                                " or )") + ")").readText()
                         val json = JSONObject(api)
                         val index = json.getJSONArray("data").length()
-                        val data = json.getJSONArray("data").getJSONObject((0 until index).random())
+                        val data =
+                            json.getJSONArray("data").getJSONObject((0 until index).random())
                         largeImage = data.getJSONObject("images").getString("large")
                     } catch (e: Exception) {
                         runOnUiThread {
@@ -716,6 +732,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }.join()
+            webView.setInitialScale(1)
             layoutView.visibility = View.INVISIBLE
             webView.visibility = View.VISIBLE
             webView.loadUrl(largeImage)
