@@ -217,7 +217,8 @@ class MainActivity : AppCompatActivity() {
             "swsh45",
             "swsh45sv",
             "swsh5",
-            "swsh6"
+            "swsh6",
+            "swsh7"
         )
 
         val setsV = arrayOf(
