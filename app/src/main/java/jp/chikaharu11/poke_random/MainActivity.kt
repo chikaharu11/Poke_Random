@@ -230,8 +230,7 @@ class MainActivity : AppCompatActivity() {
             "swsh45",
             "swsh45sv",
             "swsh5",
-            "swsh6",
-            "swsh7"
+            "swsh6"
         )
 
         val setsEX = arrayOf(
