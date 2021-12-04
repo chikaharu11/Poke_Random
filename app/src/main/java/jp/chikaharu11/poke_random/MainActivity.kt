@@ -218,7 +218,17 @@ class MainActivity : AppCompatActivity() {
             "swsh45sv",
             "swsh5",
             "swsh6",
-            "swsh7"
+            "swsh7",
+            "cel25",
+            "cel25c",
+            "mcd14",
+            "mcd15",
+            "mcd18",
+            "mcd17",
+            "mcd21",
+            "bp",
+            "swsh8",
+            "fut20"
         )
 
         val setsV = arrayOf(
@@ -231,7 +241,10 @@ class MainActivity : AppCompatActivity() {
             "swsh45",
             "swsh45sv",
             "swsh5",
-            "swsh6"
+            "swsh6",
+            "swsh7",
+            "cel25",
+            "swsh8"
         )
 
         val setsEX = arrayOf(
@@ -258,7 +271,8 @@ class MainActivity : AppCompatActivity() {
             "g1",
             "xy10",
             "xy11",
-            "xy12"
+            "xy12",
+            "cel25c"
         )
 
         val setsGX = arrayOf(
@@ -278,7 +292,8 @@ class MainActivity : AppCompatActivity() {
             "sm11",
             "sm115",
             "sma",
-            "sm12"
+            "sm12",
+            "cel25c"
         )
 
         webView.setOnTouchListener { _, event ->
